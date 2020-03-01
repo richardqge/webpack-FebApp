@@ -2,8 +2,9 @@ const path = require("path");
 const common = require("./webpack.common");
 // var HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require("webpack-merge");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-module.exports = {
+module.exports = merge({
   mode: "production", 
   output: {
     filename: "main.[contentHash].js",
@@ -15,5 +16,6 @@ module.exports = {
   //   new HtmlWebpackPlugin({
   //   template: "./src/template.html"
   // })],
+  plugins:[new CleanWebpackPlugin()]
  
-};
+});
